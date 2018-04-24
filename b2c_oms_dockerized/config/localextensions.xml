@@ -1,0 +1,16 @@
+<hybrisconfig xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:noNamespaceSchemaLocation='../bin/platform/resources/schemas/extensions.xsd'>
+  <extensions>
+    <path dir='${HYBRIS_BIN_DIR}' autoload='false' />
+    <extension name='ordermanagementwebservices' />
+    <extension name='ordermanagementaddon' />
+    <extension name='warehousingwebservices' />
+    <extension name='warehousingbackoffice' />
+    <extension name='yacceleratorordermanagement' />
+    <extension name='yacceleratorcockpits' />
+    <extension name='yacceleratorinitialdata' />
+    <extension name='yacceleratorfacades' />
+    <extension name='electronicsstore' />
+    <extension name='customersupportbackoffice' />
+    <extension name='consignmenttrackingbackoffice' />
+  </extensions>
+</hybrisconfig>
