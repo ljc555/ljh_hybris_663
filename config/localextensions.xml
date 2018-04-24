@@ -87,6 +87,9 @@
     <extension name='timedaccesspromotionenginesamplesaddon' />
     <extension name='timedaccesspromotionenginebackoffice' />
 	
+	<extension   name='assistedservicestorefront'/>
+	<extension   name='hmc'/>
+	
 	<extension name='mandycockpits'/>
 	<extension name='mandycore'/>
 	<extension name='mandyfacades'/>
