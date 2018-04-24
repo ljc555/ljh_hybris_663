@@ -9,10 +9,10 @@
     <extension name='commerceservicesbackoffice' />
     <extension name='solrfacetsearchbackoffice' />
     <extension name='solrserver' />
-    <extension name='yacceleratorcockpits' />
-    <extension name='yacceleratorinitialdata' />
-    <extension name='yacceleratorfulfilmentprocess' />
-    <extension name='yacceleratorstorefront' />
+    <!--extension name='yacceleratorcockpits' /-->
+    <!--extension name='yacceleratorinitialdata' /-->
+    <!--extension name='yacceleratorfulfilmentprocess' /-->
+    <!--extension name='yacceleratorstorefront' /-->
     <extension name='ycommercewebservices' />
     <extension name='ycommercewebservicestest' />
     <extension name='electronicsstore' />
@@ -86,5 +86,13 @@
     <extension name='timedaccesspromotionengineaddon' />
     <extension name='timedaccesspromotionenginesamplesaddon' />
     <extension name='timedaccesspromotionenginebackoffice' />
+	
+	<extension name='mandycockpits'/>
+	<extension name='mandycore'/>
+	<extension name='mandyfacades'/>
+	<extension name='mandyfulfilmentprocess'/>
+	<extension name='mandyinitialdata'/>
+	<extension name='mandystorefront'/>
+	<extension name='mandytest'/>
   </extensions>
 </hybrisconfig>
