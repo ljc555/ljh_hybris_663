@@ -76,8 +76,8 @@ bin/custom/mandy/mandystorefront/web/commonwebsrc/acceleratorstorefrontcommons/*
 bin/custom/mandy/mandystorefront/web/webroot/_ui/responsive/theme-alpha/css/style.css
 bin/custom/mandy/mandystorefront/web/webroot/_ui/responsive/theme-lambda/css/style.css
 bin/custom/backoffice/mandybackoffice/resources/backoffice/mandybackoffice_bof.jar
-bin/custom/integration/mandycommercewebservices/web/addonsrc/*
-bin/custom/integration/lstmallbackoffice/resources/backoffice/lstmallbackoffice_bof.jar
+bin/custom/integration/mandcommercewebservices/web/addonsrc/*
+bin/custom/backoffice/mandbackoffice/resources/backoffice/mandbackoffice_bof.jar
 
 bin/custom/mandy/mandycommercewebservices/web/addonsrc/*
 bin/custom/mandy/mandyinitialdata/.classpath

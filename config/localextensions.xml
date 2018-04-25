@@ -14,8 +14,8 @@
     <!--extension name='yacceleratorfulfilmentprocess' /-->
     <!--extension name='yacceleratorstorefront' /-->
     <!--extension name='ycommercewebservices' /-->
-    <extension name='ycommercewebservicestest' />
-    <extension name='electronicsstore' />
+    <!--extension name='ycommercewebservicestest' /-->
+    <!--extension name='electronicsstore' /-->
     <extension name='acceleratorwebservicesaddon' />
     <extension name='orderselfserviceaddon' />
     <extension name='customersupportbackoffice' />
@@ -65,7 +65,7 @@
     <extension name='chinesepspalipaymock' />
     <extension name='chinesepspalipaysamplesaddon' />
     <extension name='chinesepspalipaysbackoffice' />
-    <extension name='chinesestoreaddon' />
+    <!--extension name='chinesestoreaddon' /-->
     <extension name='verticalnavigationaddon' />
     <extension name='chineseaddressaddon' />
     <extension name='chineseaddressbackoffice' />
