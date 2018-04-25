@@ -69,8 +69,8 @@ bin/custom/addon/*/.gitignore
 bin/custom/mandy/mandystorefront/build.xml
 bin/custom/mandy/mandystorefront/platformhome.properties
 bin/custom/mandy/mandystorefront/resources/wro_addons.xml
-bin/custom/mandy/mandystorefront/web/webroot/cockpit/
-bin/custom/mandy/mandystorefront/web/webroot/cmscockpit/
+bin/custom/mandy/mandystorefront/web/webroot/cockpit/*
+bin/custom/mandy/mandystorefront/web/webroot/cmscockpit/*
 bin/custom/mandy/mandystorefront/web/addonsrc/*
 bin/custom/mandy/mandystorefront/web/commonwebsrc/acceleratorstorefrontcommons/*
 bin/custom/mandy/mandystorefront/web/webroot/_ui/responsive/theme-alpha/css/style.css
