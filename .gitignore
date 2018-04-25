@@ -86,3 +86,5 @@ bin/custom/mandy/mandyinitialdata/.settings/org.eclipse.core.resources.prefs
 bin/custom/mandy/mandyinitialdata/.settings/org.eclipse.jdt.core.prefs
 bin/custom/mandy/mandycore/.project
 
+*.project
+
