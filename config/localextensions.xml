@@ -13,7 +13,7 @@
     <!--extension name='yacceleratorinitialdata' /-->
     <!--extension name='yacceleratorfulfilmentprocess' /-->
     <!--extension name='yacceleratorstorefront' /-->
-    <extension name='ycommercewebservices' />
+    <!--extension name='ycommercewebservices' /-->
     <extension name='ycommercewebservicestest' />
     <extension name='electronicsstore' />
     <extension name='acceleratorwebservicesaddon' />
@@ -87,9 +87,18 @@
     <extension name='timedaccesspromotionenginesamplesaddon' />
     <extension name='timedaccesspromotionenginebackoffice' />
 	
-	<extension name='assistedservicestorefront'/>
+	<!-- add hmc module -->
 	<extension name='hmc'/>
+	
+	<!-- add weixin module -->
+	<extension name='acceleratorstorefrontcommons'/>
+    <extension name='addonsupport'/>
+    <extension name='chinesepspalipayservices'/>
+    <extension name='chinesepspwechatpayservices'/>
+	<extension name='payment'/>
+    <extension name='chinesepaymentservices'/>
 
+	<!-- add mandy module -->
 	<extension name='mandycockpits'/>
 	<extension name='mandycore'/>
 	<extension name='mandyfacades'/>
@@ -97,5 +106,8 @@
 	<extension name='mandyinitialdata'/>
 	<extension name='mandystorefront'/>
 	<extension name='mandytest'/>
+	
+	<extension name='mandyintegrationweb'/>
+	<extension name='mandyintegrationservices'/>
   </extensions>
 </hybrisconfig>

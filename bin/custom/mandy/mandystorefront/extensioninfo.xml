@@ -11,7 +11,8 @@
 --><extensioninfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="extensioninfo.xsd">
 
 	<extension abstractclassprefix="Generated" classprefix="MandyStorefront" name="mandystorefront" usemaven="false">		
-        <requires-extension name="assistedservicestorefront"/>
+        <requires-extension name="chineselogisticaddon"/>
+<requires-extension name="assistedservicestorefront"/>
 <requires-extension name="personalizationsearchsamplesaddon"/>
 <requires-extension name="timedaccesspromotionenginesamplesaddon"/>
 <requires-extension name="timedaccesspromotionengineaddon"/>
@@ -40,7 +41,7 @@
 <requires-extension name="chinesepspalipaysamplesaddon"/>
 <requires-extension name="chinesetaxinvoiceaddon"/>
 <requires-extension name="chinesepaymentaddon"/>
-<requires-extension name="chineselogisticaddon"/>
+
 <requires-extension name="chineseprofileaddon"/>
 
 
