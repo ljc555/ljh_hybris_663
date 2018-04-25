@@ -109,5 +109,7 @@
 	
 	<extension name='mandyintegrationweb'/>
 	<extension name='mandyintegrationservices'/>
+	<extension name='mandbackoffice'/>
+	<extension name='mandcommercewebservices'/>
   </extensions>
 </hybrisconfig>
