@@ -559,7 +559,7 @@
 	</bean>
 	<bean id="mandyVariantCategorySource" parent="variantCategorySource"/>
 	<bean id="mandyCategorySource" parent="variantCategorySource">
-		<property name="rootCategory" value="${kingworlkdb2c.CategorySource.rootCategory}"/>
+		<property name="rootCategory" value="${mandyb2c.CategorySource.rootCategory}"/>
 	</bean>
 	<bean id="mandyCategoryCodeValueProvider" parent="abstractCategoryCodeValueProvider">
 		<property name="categorySource" ref="mandyCategorySource"/>
