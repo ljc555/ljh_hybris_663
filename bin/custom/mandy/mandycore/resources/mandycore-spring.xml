@@ -552,4 +552,29 @@
 		<property name="itemCleanupHooks" ref="csTicketRetentionHooks"/>
 		<property name="ticketBusinessService" ref="ticketBusinessService"/>
 	</bean>
+
+	<!-- Solr field value providers -->
+	<bean id="mandyBrandCategorySource" parent="defaultCategorySource">
+		<property name="rootCategory" value="brands"/> <!-- 'brands' is the root of the brands hierarchy -->
+	</bean>
+	<bean id="mandyVariantCategorySource" parent="variantCategorySource"/>
+	<bean id="mandyCategorySource" parent="variantCategorySource">
+		<property name="rootCategory" value="${kingworlkdb2c.CategorySource.rootCategory}"/>
+	</bean>
+	<bean id="mandyCategoryCodeValueProvider" parent="abstractCategoryCodeValueProvider">
+		<property name="categorySource" ref="mandyCategorySource"/>
+	</bean>
+	<bean id="mandyBrandCategoryCodeValueProvider" parent="abstractCategoryCodeValueProvider">
+		<property name="categorySource" ref="mandyBrandCategorySource"/>
+	</bean>
+	<bean id="mandyVariantCategoryCodeValueProvider" parent="abstractCategoryCodeValueProvider">
+		<property name="categorySource" ref="mandyVariantCategorySource"/>
+	</bean>
+	<bean id="mandyCategoryNameValueProvider" parent="abstractCategoryNameValueProvider">
+		<property name="categorySource" ref="mandyCategorySource"/>
+	</bean>
+	<bean id="mandyBrandCategoryNameValueProvider" parent="abstractCategoryNameValueProvider">
+		<property name="categorySource" ref="mandyBrandCategorySource"/>
+	</bean>
+
 </beans>
