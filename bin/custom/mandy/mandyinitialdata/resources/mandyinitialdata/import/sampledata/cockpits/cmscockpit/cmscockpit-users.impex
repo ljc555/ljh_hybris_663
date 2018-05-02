@@ -21,16 +21,16 @@ INSERT_UPDATE UserGroup;UID[unique=true];groups(uid)[mode=append]
 
 INSERT_UPDATE UserGroup;UID[unique=true];groups(uid)[mode=append]
 ;cmsmanagergroup;cockpitgroup,employeegroup
-;base-electronics-cmsmanagergroup;basecmsmanagergroup
-;electronics-cmsmanagergroup;base-electronics-cmsmanagergroup
+;base-mandyb2c-cmsmanagergroup;basecmsmanagergroup
+;mandyb2c-cmsmanagergroup;base-mandyb2c-cmsmanagergroup
 
 INSERT_UPDATE PrincipalGroupRelation;source(uid)[unique=true];target(uid)[unique=true]
-;electronics-cmsmanagergroup;base-electronics-cmsmanagergroup
+;mandyb2c-cmsmanagergroup;base-mandyb2c-cmsmanagergroup
 
 INSERT_UPDATE Employee;UID[unique=true];password[default=$defaultPassword];description;name;groups(uid)[mode=append];sessionLanguage(isocode);sessionCurrency(isocode)
 ;cmsmanager;;CMS manager;CMS Manager;cmsmanagergroup,cockpitgroup;en;USD
-;cmsmanager-electronics;;CMS manager Electronics;CMS Manager Electronics;electronics-cmsmanagergroup,previewmanagergroup,cockpitgroup;en;USD
+;cmsmanager-mandyb2c;;CMS manager Mandyb2c;CMS Manager Mandyb2c;mandyb2c-cmsmanagergroup,previewmanagergroup,cockpitgroup;en;USD
 
 UPDATE CatalogVersion;catalog(id)[unique=true];version[unique=true];writePrincipals(uid)[mode=append];readPrincipals(uid)[mode=append];
-;electronicsContentCatalog;Staged;cmsmanagergroup,electronics-cmsmanagergroup;
-;electronicsContentCatalog;Online;;cmsmanagergroup,electronics-cmsmanagergroup;
+;mandyb2cContentCatalog;Staged;cmsmanagergroup,mandyb2c-cmsmanagergroup;
+;mandyb2cContentCatalog;Online;;cmsmanagergroup,mandyb2c-cmsmanagergroup;
