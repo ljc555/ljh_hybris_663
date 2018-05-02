@@ -15,7 +15,7 @@
     <!--extension name='yacceleratorstorefront' /-->
     <!--extension name='ycommercewebservices' /-->
     <!--extension name='ycommercewebservicestest' /-->
-    <!--extension name='electronicsstore' /-->
+    <extension name='electronicsstore' />
     <extension name='acceleratorwebservicesaddon' />
     <extension name='orderselfserviceaddon' />
     <extension name='customersupportbackoffice' />

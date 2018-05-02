@@ -27,35 +27,21 @@
 # Languages
 INSERT_UPDATE Language;isocode[unique=true];fallbackLanguages(isocode);active[default=true]
 ;en;;;
-;de;en;;
-;ja;en;;
 ;zh;en;;
 
 # Currencies
 INSERT_UPDATE Currency;isocode[unique=true];conversion;digits;symbol
-;GBP;1;2;£
-;EUR;1;2;€
 ;USD;1,4;2;$
-;JPY;120;0;¥
+;CNY;1;2;¥
 
 # SiteMap Language Currencies
 INSERT_UPDATE SiteMapLanguageCurrency;&siteMapLanguageCurrency;language(isoCode)[unique=true];currency(isocode)[unique=true];
-;enUsd;en;USD
-;enJpy;en;JPY
-;enGbp;en;GBP
-;enEur;en;EUR
-;jaUsd;ja;USD
-;jaJpy;ja;JPY
-;jaGbp;ja;GBP
-;jaEur;ja;EUR
-;deUsd;de;USD
-;deJpy;de;JPY
-;deGbp;de;GBP
-;deEur;de;EUR
+;zhCny;zh;CNY
 ;zhUsd;zh;USD
-;zhJpy;zh;JPY
-;zhGbp;zh;GBP
-;zhEur;zh;EUR
+;enUsd;en;USD
+;enCny;en;CNY
+
+
 
 # Vendor
 INSERT_UPDATE Vendor;code[unique=true];name
@@ -100,28 +86,28 @@ INSERT_UPDATE MediaFormat;qualifier[unique=true]
 
 # Tax & Tax Groups
 INSERT_UPDATE UserTaxGroup;code[unique=true]
-;de-taxes
-;jp-taxes
-;uk-taxes
+# ;jp-taxes
 ;us-taxes
-;ca-taxes
+;cn-taxes
 
 INSERT_UPDATE ProductTaxGroup;code[unique=true]
-;jp-vat-full
-;eu-vat-full
-;eu-vat-half
+# ;jp-vat-full
 ;us-sales-tax-full
-;ca-sales-tax-full
+;cn-sales-tax-full
 
 INSERT_UPDATE Tax;code[unique=true];value;currency(isocode)
-;de-vat-full;19
-;de-vat-half;7
-;jp-vat-full;5
-;uk-vat-full;20
-;uk-vat-half;5
+# ;jp-vat-full;5
 ;us-sales-tax-full;0
-;ca-sales-tax-full;0
+;cn-sales-tax-full;10
 
 INSERT_UPDATE ServicelayerJob;code[unique=true];springId[unique=true]
 ;cartRemovalJob;cartRemovalJob
 ;siteMapMediaJob;siteMapMediaJob
+
+
+# required as these data would be loaded in via yacceleratorcore coresystemsetup but not used
+REMOVE Region;country(isocode);isocode[unique=true];isocodeShort;name[lang=en];
+;CN;CN-71;71;"Taiwan"
+;CN;CN-91;91;"Xianggang"
+;CN;CN-92;92;"Aomen"
+
