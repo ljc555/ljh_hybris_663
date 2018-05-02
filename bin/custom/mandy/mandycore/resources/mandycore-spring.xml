@@ -440,7 +440,7 @@
 		<property name="modelService" ref="modelService"/>
 		<property name="businessProcessService" ref="businessProcessService"/>
 	</bean>
-	
+
 	<bean id="quoteExpiredEventListener" class="com.mandy.b2c.core.event.QuoteExpiredEventListener"
 		  parent="abstractEventListener">
 		<property name="modelService" ref="modelService"/>
@@ -468,7 +468,7 @@
 		  class="de.hybris.platform.processengine.definition.ProcessDefinitionResource" >
 		<property name="resource" value="classpath:/mandycore/processes/quote/quote-seller-approval-process.xml"/>
 	</bean>
-	
+
 	<bean id="quotePostCancellationProcessDefinitionResource"
 		  class="de.hybris.platform.processengine.definition.ProcessDefinitionResource" >
 		<property name="resource" value="classpath:/mandycore/processes/quote/quote-post-cancellation-process.xml"/>
@@ -478,7 +478,7 @@
 		  class="de.hybris.platform.processengine.definition.ProcessDefinitionResource" >
 		<property name="resource" value="classpath:/mandycore/processes/quote/quote-to-expire-soon-email-process.xml"/>
 	</bean>
-	
+
 	<bean id="quoteExpiredProcessDefinitionResource"
 		  class="de.hybris.platform.processengine.definition.ProcessDefinitionResource" >
 		<property name="resource" value="classpath:/mandycore/processes/quote/quote-expired-email-process.xml"/>
@@ -498,7 +498,7 @@
 		<property name="configurationService" ref="configurationService" />
 		<property name="timeService" ref="timeService" />
 	</bean>
-	
+
 	<bean id="quoteExpiredJobPerformable"
 		  class="com.mandy.b2c.core.job.QuoteExpiredJobPerformable"
 		  parent="abstractJobPerformable">
@@ -515,24 +515,24 @@
 	<import resource="/mandycore/processes/quote/quote-buyer-process-spring.xml"/>
 	<import resource="/mandycore/processes/quote/quote-salesrep-process-spring.xml"/>
 	<import resource="/mandycore/processes/quote/quote-seller-approval-process-spring.xml"/>
-	
+
 	<import resource="/mandycore/processes/quote/quote-to-expire-soon-email-process-spring.xml"/>
 	<import resource="/mandycore/processes/quote/quote-expired-email-process-spring.xml"/>
 
 	<import resource="/mandycore/processes/quote/quote-post-cancellation-process-spring.xml"/>
-	
+
 	<!-- Customer cleanup -->
 	<alias name="defaultCustomerCleanupRelatedObjectsAction" alias="customerCleanupRelatedObjectsAction"/>
 	<bean id="defaultCustomerCleanupRelatedObjectsAction" class="com.mandy.b2c.core.retention.impl.DefaultCustomerCleanupRelatedObjectsAction" parent="abstractExtensibleRemoveCleanupAction">
 		<property name="itemCleanupHooks" ref="customerCleanupHooks"/>
 	</bean>
-	
+
 	<!-- Cleanup the customers not owning any order currently and the current date has past deactivation date+retention date. Also removes customers audit records. -->
 	<alias name="defaultCustomerNotOwningOrdersRemoveCleanupAction" alias="customerNotOwningOrdersRemoveCleanupAction"/>
 	<bean id="defaultCustomerNotOwningOrdersRemoveCleanupAction" class="de.hybris.platform.retention.impl.DefaultExtensibleRemoveCleanupAction" parent="abstractExtensibleRemoveCleanupAction">
 		<property name="itemCleanupHooks" ref="customerCleanupHooks"/>
 	</bean>
-	
+
 	<!-- Order cleanup -->
 	<!-- Cleanup the order related objects and then remove order and its audit records. -->
 	<alias name="defaultOrderRemoveCleanupAction" alias="orderRemoveCleanupAction"/>
@@ -554,27 +554,27 @@
 	</bean>
 
 	<!-- Solr field value providers -->
-	<bean id="mandyBrandCategorySource" parent="defaultCategorySource">
+	<bean id="mandyb2cBrandCategorySource" parent="defaultCategorySource">
 		<property name="rootCategory" value="brands"/> <!-- 'brands' is the root of the brands hierarchy -->
 	</bean>
-	<bean id="mandyVariantCategorySource" parent="variantCategorySource"/>
-	<bean id="mandyCategorySource" parent="variantCategorySource">
+	<bean id="mandyb2cVariantCategorySource" parent="variantCategorySource"/>
+	<bean id="mandyb2cCategorySource" parent="variantCategorySource">
 		<property name="rootCategory" value="${mandyb2c.CategorySource.rootCategory}"/>
 	</bean>
-	<bean id="mandyCategoryCodeValueProvider" parent="abstractCategoryCodeValueProvider">
-		<property name="categorySource" ref="mandyCategorySource"/>
+	<bean id="mandyb2cCategoryCodeValueProvider" parent="abstractCategoryCodeValueProvider">
+		<property name="categorySource" ref="mandyb2cCategorySource"/>
 	</bean>
-	<bean id="mandyBrandCategoryCodeValueProvider" parent="abstractCategoryCodeValueProvider">
-		<property name="categorySource" ref="mandyBrandCategorySource"/>
+	<bean id="mandyb2cBrandCategoryCodeValueProvider" parent="abstractCategoryCodeValueProvider">
+		<property name="categorySource" ref="mandyb2cBrandCategorySource"/>
 	</bean>
-	<bean id="mandyVariantCategoryCodeValueProvider" parent="abstractCategoryCodeValueProvider">
-		<property name="categorySource" ref="mandyVariantCategorySource"/>
+	<bean id="mandyb2cVariantCategoryCodeValueProvider" parent="abstractCategoryCodeValueProvider">
+		<property name="categorySource" ref="mandyb2cVariantCategorySource"/>
 	</bean>
-	<bean id="mandyCategoryNameValueProvider" parent="abstractCategoryNameValueProvider">
-		<property name="categorySource" ref="mandyCategorySource"/>
+	<bean id="mandyb2cCategoryNameValueProvider" parent="abstractCategoryNameValueProvider">
+		<property name="categorySource" ref="mandyb2cCategorySource"/>
 	</bean>
-	<bean id="mandyBrandCategoryNameValueProvider" parent="abstractCategoryNameValueProvider">
-		<property name="categorySource" ref="mandyBrandCategorySource"/>
+	<bean id="mandyb2cBrandCategoryNameValueProvider" parent="abstractCategoryNameValueProvider">
+		<property name="categorySource" ref="mandyb2cBrandCategorySource"/>
 	</bean>
 
 </beans>
