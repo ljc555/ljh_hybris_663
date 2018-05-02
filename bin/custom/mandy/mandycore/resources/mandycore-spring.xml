@@ -22,8 +22,7 @@
      <context:annotation-config/>
 
 	<!-- Spring Integration -->
-	<import resource="classpath:/mandycore/integration/hot-folder-store-electronics-spring.xml"/>
-	<import resource="classpath:/mandycore/integration/hot-folder-store-apparel-spring.xml"/>
+	<import resource="classpath:/mandycore/integration/hot-folder-store-mandyb2c-spring.xml"/>
 	<import resource="classpath:/mandycore/integration/hot-folder-common-spring.xml"/>
 
 	<!-- SystemSetup for the MandyCore -->
@@ -50,25 +49,13 @@
     </bean>
 
 
-	<bean id="electronicsCategorySource" parent="abstractCategorySource">
+	<bean id="mandyb2cCategorySource" parent="abstractCategorySource">
 		<property name="rootCategory" value="1"/>
 		<!-- '1' is the root icecat category -->
 	</bean>
-	<bean id="electronicsBrandCategorySource" parent="abstractCategorySource">
+	<bean id="mandyb2cBrandCategorySource" parent="abstractCategorySource">
 		<property name="rootCategory" value="brands"/>
 		<!-- 'brands' is the root of the brands hierarchy -->
-	</bean>
-
-	<bean id="apparelCategorySource" parent="abstractCategorySource">
-		<property name="rootCategory" value="categories"/>
-		<!-- 'categories' is the root apparel category -->
-	</bean>
-	<bean id="apparelBrandCategorySource" parent="abstractCategorySource">
-		<property name="rootCategory" value="brands"/>
-		<!-- 'brands' is the root of the brands hierarchy -->
-	</bean>
-	<bean id="apparelCollectionCategorySource" parent="abstractCategorySource">
-		<property name="rootCategory" value="collections"/> <!-- 'collections' is the root of the collections hierarchy -->
 	</bean>
 
 	<bean id="abstractCategoryCodeValueProvider" abstract="true"
@@ -84,36 +71,17 @@
 		<property name="commonI18NService" ref="commonI18NService"/>
 	</bean>
 
-	<bean id="electronicsCategoryCodeValueProvider" parent="abstractCategoryCodeValueProvider">
-		<property name="categorySource" ref="electronicsCategorySource"/>
+	<bean id="mandyb2cCategoryCodeValueProvider" parent="abstractCategoryCodeValueProvider">
+		<property name="categorySource" ref="mandyb2cCategorySource"/>
 	</bean>
-	<bean id="electronicsBrandCategoryCodeValueProvider" parent="abstractCategoryCodeValueProvider">
-		<property name="categorySource" ref="electronicsBrandCategorySource"/>
+	<bean id="mandyb2cBrandCategoryCodeValueProvider" parent="abstractCategoryCodeValueProvider">
+		<property name="categorySource" ref="mandyb2cBrandCategorySource"/>
 	</bean>
-	<bean id="electronicsCategoryNameValueProvider" parent="abstractCategoryNameValueProvider">
-		<property name="categorySource" ref="electronicsCategorySource"/>
+	<bean id="mandyb2cCategoryNameValueProvider" parent="abstractCategoryNameValueProvider">
+		<property name="categorySource" ref="mandyb2cCategorySource"/>
 	</bean>
-	<bean id="electronicsBrandCategoryNameValueProvider" parent="abstractCategoryNameValueProvider">
-		<property name="categorySource" ref="electronicsBrandCategorySource"/>
-	</bean>
-
-	<bean id="apparelCategoryCodeValueProvider" parent="abstractCategoryCodeValueProvider">
-		<property name="categorySource" ref="apparelCategorySource"/>
-	</bean>
-	<bean id="apparelBrandCategoryCodeValueProvider" parent="abstractCategoryCodeValueProvider">
-		<property name="categorySource" ref="apparelBrandCategorySource"/>
-	</bean>
-	<bean id="apparelCollectionCategoryCodeValueProvider" parent="abstractCategoryCodeValueProvider">
-		<property name="categorySource" ref="apparelCollectionCategorySource"/>
-	</bean>
-	<bean id="apparelCategoryNameValueProvider" parent="abstractCategoryNameValueProvider">
-		<property name="categorySource" ref="apparelCategorySource"/>
-	</bean>
-	<bean id="apparelBrandCategoryNameValueProvider" parent="abstractCategoryNameValueProvider">
-		<property name="categorySource" ref="apparelBrandCategorySource"/>
-	</bean>
-	<bean id="apparelCollectionCategoryNameValueProvider" parent="abstractCategoryNameValueProvider">
-		<property name="categorySource" ref="apparelCollectionCategorySource"/>
+	<bean id="mandyb2cBrandCategoryNameValueProvider" parent="abstractCategoryNameValueProvider">
+		<property name="categorySource" ref="mandyb2cBrandCategorySource"/>
 	</bean>
 
 	<bean id="image515ValueProvider" parent="abstractImageValueProvider" >
@@ -169,13 +137,7 @@
 		<property name="commonI18NService" ref="commonI18NService"/>
 	</bean>
 
-	<bean id="apparelPointOfServiceFacetDisplayNameProvider"
-	      class="com.mandy.b2c.core.search.solrfacetsearch.provider.impl.PointOfServiceFacetDisplayNameProvider"
-	      >
-		<property name="pointOfServiceService" ref="pointOfServiceService"/>
-	</bean>
-
-	<bean id="electronicsPointOfServiceFacetDisplayNameProvider"
+	<bean id="mandyb2cPointOfServiceFacetDisplayNameProvider"
 	      class="com.mandy.b2c.core.search.solrfacetsearch.provider.impl.PointOfServiceFacetDisplayNameProvider"
 	      >
 		<property name="pointOfServiceService" ref="pointOfServiceService"/>
@@ -391,23 +353,6 @@
 		<property name="cmsSiteService" ref="cmsSiteService"/>
 	</bean>
 
-	<!-- Product Reference Lookup Strategies-->
-	<alias name="apparelCrossSellingProductReferenceTargetStrategy" alias="crossSellingProductReferenceTargetStrategy"/>
-	<bean id="apparelCrossSellingProductReferenceTargetStrategy"
-	      parent="defaultCrossSellingProductReferenceTargetStrategy">
-		<property name="productReferenceTargetStrategies">
-			<list merge="true">
-				<ref bean="apparelSizeProductReferenceTargetStrategy"/>
-			</list>
-		</property>
-	</bean>
-
-	<bean id="apparelSizeProductReferenceTargetStrategy"
-	      class="com.mandy.b2c.core.strategies.impl.ApparelSizeProductReferenceTargetStrategy">
-		<property name="commerceCategoryService" ref="commerceCategoryService"/>
-		<property name="rootCategoryCode" value="categories"/>
-	</bean>
-
 	<!-- Sales quote process actions -->
 
 	<!-- quote-->
@@ -551,30 +496,6 @@
 	<bean id="defaultCSTicketStagnationAction" class="com.mandy.b2c.core.retention.impl.DefaultCSTicketStagnationAction" parent="abstractExtensibleRemoveCleanupAction">
 		<property name="itemCleanupHooks" ref="csTicketRetentionHooks"/>
 		<property name="ticketBusinessService" ref="ticketBusinessService"/>
-	</bean>
-
-	<!-- Solr field value providers -->
-	<bean id="mandyb2cBrandCategorySource" parent="defaultCategorySource">
-		<property name="rootCategory" value="brands"/> <!-- 'brands' is the root of the brands hierarchy -->
-	</bean>
-	<bean id="mandyb2cVariantCategorySource" parent="variantCategorySource"/>
-	<bean id="mandyb2cCategorySource" parent="variantCategorySource">
-		<property name="rootCategory" value="${mandyb2c.CategorySource.rootCategory}"/>
-	</bean>
-	<bean id="mandyb2cCategoryCodeValueProvider" parent="abstractCategoryCodeValueProvider">
-		<property name="categorySource" ref="mandyb2cCategorySource"/>
-	</bean>
-	<bean id="mandyb2cBrandCategoryCodeValueProvider" parent="abstractCategoryCodeValueProvider">
-		<property name="categorySource" ref="mandyb2cBrandCategorySource"/>
-	</bean>
-	<bean id="mandyb2cVariantCategoryCodeValueProvider" parent="abstractCategoryCodeValueProvider">
-		<property name="categorySource" ref="mandyb2cVariantCategorySource"/>
-	</bean>
-	<bean id="mandyb2cCategoryNameValueProvider" parent="abstractCategoryNameValueProvider">
-		<property name="categorySource" ref="mandyb2cCategorySource"/>
-	</bean>
-	<bean id="mandyb2cBrandCategoryNameValueProvider" parent="abstractCategoryNameValueProvider">
-		<property name="categorySource" ref="mandyb2cBrandCategorySource"/>
 	</bean>
 
 </beans>
