@@ -13,6 +13,9 @@ package com.mandy.b2c.initialdata.setup;
 import de.hybris.platform.commerceservices.dataimport.impl.CoreDataImportService;
 import de.hybris.platform.commerceservices.dataimport.impl.SampleDataImportService;
 import de.hybris.platform.commerceservices.setup.AbstractSystemSetup;
+import de.hybris.platform.commerceservices.setup.data.ImportData;
+import de.hybris.platform.commerceservices.setup.events.CoreDataImportedEvent;
+import de.hybris.platform.commerceservices.setup.events.SampleDataImportedEvent;
 import de.hybris.platform.core.initialization.SystemSetup;
 import de.hybris.platform.core.initialization.SystemSetup.Process;
 import de.hybris.platform.core.initialization.SystemSetup.Type;
@@ -22,6 +25,7 @@ import de.hybris.platform.core.initialization.SystemSetupParameterMethod;
 import com.mandy.b2c.initialdata.constants.MandyInitialDataConstants;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -101,9 +105,46 @@ public class InitialDataSystemSetup extends AbstractSystemSetup
 	@SystemSetup(type = Type.PROJECT, process = Process.ALL)
 	public void createProjectData(final SystemSetupContext context)
 	{
-		/*
-		 * Add import data for each site you have configured
-		 */
+		final List<ImportData> importData = new ArrayList<ImportData>();
+
+		final ImportData sampleImportData = new ImportData();
+		sampleImportData.setProductCatalogName("mandyb2c");
+		sampleImportData.setContentCatalogNames(Arrays.asList("mandyb2c"));
+		sampleImportData.setStoreNames(Arrays.asList("mandyb2c"));
+		importData.add(sampleImportData);
+
+		getCoreDataImportService().execute(this, context, importData);
+		getEventService().publishEvent(new CoreDataImportedEvent(context, importData));
+
+		getSampleDataImportService().execute(this, context, importData);
+		getEventService().publishEvent(new SampleDataImportedEvent(context, importData));
+
+		final String extensionName = context.getExtensionName();
+		getSetupImpexService().importImpexFile(String.format(
+			"/%s/import/coredata/contentCatalogs/mandyb2cContentCatalog/mandy-cms-content.impex", extensionName), false);
+		getSetupImpexService().importImpexFile(
+			String.format("/%s/import/coredata/contentCatalogs/mandyb2cContentCatalog/mandy-cms-content_en.impex",
+				extensionName),
+			false);
+		getSetupImpexService().importImpexFile(
+			String.format("/%s/import/coredata/contentCatalogs/mandyb2cContentCatalog/mandy-cms-content_zh.impex",
+				extensionName),
+			false);
+		getSetupImpexService().importImpexFile(
+			String.format("/%s/import/sampledata/contentCatalogs/mandyb2cContentCatalog/mandy-cms-content.impex",
+				extensionName),
+			false);
+		getSetupImpexService().importImpexFile(
+			String.format("/%s/import/sampledata/contentCatalogs/mandyb2cContentCatalog/mandy-cms-content_en.impex",
+				extensionName),
+			false);
+		getSetupImpexService().importImpexFile(
+			String.format("/%s/import/sampledata/contentCatalogs/mandyb2cContentCatalog/mandy-cms-content_zh.impex",
+				extensionName),
+			false);
+		getSetupImpexService()
+			.importImpexFile(String.format("/%s/import/coredata/common/mandy-homepage.impex", extensionName), false);
+
 	}
 
 	public CoreDataImportService getCoreDataImportService()
