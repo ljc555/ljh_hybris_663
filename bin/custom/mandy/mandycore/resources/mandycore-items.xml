@@ -33,6 +33,17 @@
             <value code="WHITE"/>
             <value code="YELLOW"/>
         </enumtype>
+        <enumtype code="QuestionnaireSource" autocreate="true" generate="true" dynamic="true">
+            <value code="Internet">
+                <description>??</description>
+            </value>
+            <value code="PaperAd">
+                <description>??</description>
+            </value>
+            <value code="Tv">
+                <description>??</description>
+            </value>
+        </enumtype>
     </enumtypes>
 
     <itemtypes>
@@ -107,6 +118,50 @@
                         <description>Color of the product.</description>
                         <modifiers/>
                         <persistence type="property"/>
+                    </attribute>
+                </attributes>
+            </itemtype>
+        </typegroup>
+
+        <typegroup name="mandyDemo">
+            <itemtype code="Questionnaire" autocreate="true" generate="true">
+                <deployment table="Questionnaire" typecode="30001" />
+                <attributes>
+                    <attribute qualifier="code" type="java.lang.String">
+                        <description>??Code</description>
+                        <modifiers />
+                        <persistence type="property" />
+                    </attribute>
+                    <attribute qualifier="productCode" type="java.lang.String">
+                        <description>??Code</description>
+                        <modifiers />
+                        <persistence type="property" />
+                    </attribute>
+                    <attribute qualifier="productName" type="java.lang.String">
+                        <description>?????</description>
+                        <modifiers />
+                        <persistence type="property" />
+                    </attribute>
+                    <attribute qualifier="price" type="PriceRow">
+                        <description>????</description>
+                        <modifiers />
+                        <persistence type="property" />
+                    </attribute>
+                    <attribute qualifier="manufactor" type="java.lang.String">
+                        <description>????</description>
+                        <modifiers />
+                        <persistence type="property" />
+                    </attribute>
+                    <attribute qualifier="source" type="QuestionnaireSource">
+                        <description>????</description>
+                        <modifiers />
+                        <persistence type="property" />
+                    </attribute>
+                    <attribute qualifier="ifBuy" type="java.lang.Boolean">
+                        <description>????</description>
+                        <modifiers />
+                        <persistence type="property" />
+                        <defaultvalue>false</defaultvalue>
                     </attribute>
                 </attributes>
             </itemtype>

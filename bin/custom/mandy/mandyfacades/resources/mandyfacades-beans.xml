@@ -19,4 +19,16 @@
 		<property name="code" type="String"/>
 		<property name="name" type="String"/>
 	</bean>
+
+	<bean class="com.mandy.platform.data.QuestionnaireData">
+		<property name="code" type="java.lang.String"/>
+		<property name="productCode" type="java.lang.String"/>
+		<property name="productName" type="java.lang.String"/>
+		<property name="price" type="java.lang.Double"/>
+		<property name="manufactor" type="java.lang.String"/>
+		<property name="source" type="java.lang.String"/>
+		<property name="ifBuy" type="java.lang.Boolean"/>
+		<property name="createDate" type="java.util.Date"/>
+		<property name="user" type="de.hybris.platform.commercefacades.user.data.CustomerData"/>
+	</bean>
 </beans>
