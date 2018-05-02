@@ -12,14 +12,25 @@
 # Import Sample CMS Cockpit User
 # 
 
+
 $defaultPassword=1234
+
+# Impexing previewmanagergroup as previewwebservices might not be impexed by the time this file is executed and the user impex uploads might fail
+INSERT_UPDATE UserGroup;UID[unique=true];groups(uid)[mode=append]
+;previewmanagergroup;employeegroup
 
 INSERT_UPDATE UserGroup;UID[unique=true];groups(uid)[mode=append]
 ;cmsmanagergroup;cockpitgroup,employeegroup
+;base-electronics-cmsmanagergroup;basecmsmanagergroup
+;electronics-cmsmanagergroup;base-electronics-cmsmanagergroup
+
+INSERT_UPDATE PrincipalGroupRelation;source(uid)[unique=true];target(uid)[unique=true]
+;electronics-cmsmanagergroup;base-electronics-cmsmanagergroup
 
 INSERT_UPDATE Employee;UID[unique=true];password[default=$defaultPassword];description;name;groups(uid)[mode=append];sessionLanguage(isocode);sessionCurrency(isocode)
-;cmsmanager;;CMS manager;CMS Manager;cmsmanagergroup;en;CNY
+;cmsmanager;;CMS manager;CMS Manager;cmsmanagergroup,cockpitgroup;en;USD
+;cmsmanager-electronics;;CMS manager Electronics;CMS Manager Electronics;electronics-cmsmanagergroup,previewmanagergroup,cockpitgroup;en;USD
 
-UPDATE CatalogVersion;catalog(id)[unique=true];version[unique=true];writePrincipals(uid);
-;mandyb2cContentCatalog;Online;cmsmanagergroup,cmsmanager;
-;mandyb2cContentCatalog;Staged;cmsmanagergroup,cmsmanager;
+UPDATE CatalogVersion;catalog(id)[unique=true];version[unique=true];writePrincipals(uid)[mode=append];readPrincipals(uid)[mode=append];
+;electronicsContentCatalog;Staged;cmsmanagergroup,electronics-cmsmanagergroup;
+;electronicsContentCatalog;Online;;cmsmanagergroup,electronics-cmsmanagergroup;
