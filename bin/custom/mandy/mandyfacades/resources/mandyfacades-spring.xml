@@ -190,4 +190,7 @@
 	</bean>
 
 	<bean id="genderData" class="com.mandy.b2c.facades.product.data.GenderData" scope="prototype"/>
+
+	<bean id="questionnaireFacade" class="com.mandy.b2c.facades.questionnaire.impl.QuestionnaireFacadeImpl"/>
+
 </beans>

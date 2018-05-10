@@ -498,4 +498,7 @@
 		<property name="ticketBusinessService" ref="ticketBusinessService"/>
 	</bean>
 
+	<bean id="questionnaireDao" class="com.mandy.b2c.core.daos.questionnaire.impl.QuestionnaireDaoImpl"/>
+	<bean id="questionnaireService" class="com.mandy.b2c.core.questionnaire.impl.QuestionnaireServiceImpl"/>
+
 </beans>

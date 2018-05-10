@@ -1,0 +1,40 @@
+$contentCatalog=mandyb2cContentCatalog
+$contentCV=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$contentCatalog]),CatalogVersion.version[default=Staged])[default=$contentCatalog:Staged]
+
+INSERT_UPDATE PageTemplate;$contentCV[unique=true];uid[unique=true];name;frontendTemplateName;restrictedPageTypes(code);active[default=true]
+;;QueryListPageTemplate;Query List Page Template;checkout/queryListPage;ContentPage
+
+# Search Data List Page Template
+INSERT_UPDATE ContentSlotName;name[unique=true];template(uid,$contentCV)[unique=true][default='QueryListPageTemplate'];validComponentTypes(code);compTypeGroup(code)
+;SiteLogo;;;logo
+;HeaderLinks;;;headerlinks
+;SearchBox;;;searchbox
+;SideContent;;;narrow
+;TopContent;;;wide
+;BottomContent;;;wide
+;Footer;;;footer
+;TopHeaderSlot;;;wide
+;BottomHeaderSlot;;;wide
+;BottomScriptSlot;;;wide
+
+INSERT_UPDATE ContentSlotForTemplate;$contentCV[unique=true];uid[unique=true];position[unique=true];pageTemplate(uid,$contentCV)[unique=true][default='QueryListPageTemplate'];contentSlot(uid,$contentCV)[unique=true];allowOverwrite
+;;SiteLogo-QueryListPage;SiteLogo;;SiteLogoSlot;true
+;;HeaderLinks-QueryListPage;HeaderLinks;;HeaderLinksSlot;true
+;;SearchBox-QueryListPage;SearchBox;;SearchBoxSlot;true
+;;SideContent-QueryListPage;SideContent;;SideContentSlot;true
+;;TopContent-QueryListPage;TopContent;;TopContentSlot;true
+;;BottomContent-QueryListPage;BottomContent;;BottomContentSlot;true
+;;Footer-QueryListPage;Footer;;FooterSlot;true
+;;TopHeaderSlot-QueryListPage;TopHeaderSlot;;TopHeaderSlot;true
+;;BottomHeaderSlot-QueryListPage;BottomHeaderSlot;;BottomHeaderSlot;true
+;;BottomScriptSlot-QueryListPage;BottomScriptSlot;;BottomScriptSlot;true
+
+# Create Content Slots
+INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active
+;;BottomScriptSlot;Script in Bottom Solt;true
+
+# Functional Content Pages
+INSERT_UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];name;masterTemplate(uid,$contentCV);label
+;;questionnaireRecord;questionnaire record Page;AccountPageTemplate;questionnaireRecord
+;;questionnaireDetail;questionnaire detail Page;AccountPageTemplate;questionnaireDetail
+;;questionnaireList;questionnaire list Page;QueryListPageTemplate;questionnaireList
