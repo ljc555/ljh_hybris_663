@@ -15,7 +15,7 @@ INSERT_UPDATE CMSLinkComponent;$contentCV[unique=true];uid[unique=true];name;url
 ;;QuestionnaireListLink;QuestionnaireListLink;/questionnaire/getQuestionnaires;QuestionnaireListLink;
 
 ###### Account Questionnaire Record Start ######
-INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='questionnaireRecord'];contentSlot(uid,$contentCV)[unique=true];;;
+INSERT_UPDATE ContentSlotForPage;$contentCV[unique=true];uid[unique=true];position[unique=true];page(uid,$contentCV)[unique=true][default='questionnaire'];contentSlot(uid,$contentCV)[unique=true];;;
 ;;SideContent-questionnaire-record;SideContent;;SideContent-questionnaire-record;;;
 ;;BodyContent-questionnaire-record;BodyContent;;BodyContent-questionnaire-record;;;
 
@@ -24,7 +24,7 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 ;;BodyContent-questionnaire-record;Body Content Slot for questionnaire record;true;QuestionnaireRecordComponent;;;
 
 INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];name;page;actions(uid,$contentCV);&componentRef
-;;QuestionnaireRecordComponent;Questionnaire Record Component;../questionnaire/questionnaireRecordForm.jsp;;QuestionnaireRecordComponent
+;;QuestionnaireRecordComponent;Questionnaire Record Component;../questionnaire/questionnaireForm.jsp;;QuestionnaireRecordComponent
 ###### Account Questionnaire Record End ######
 
 ###### Account Questionnaire Detail Start ######
@@ -37,7 +37,7 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 ;;BodyContent-questionnaire-detail;Body Content Slot for questionnaire detail;true;QuestionnaireDetailComponent;;;
 
 INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];name;page;actions(uid,$contentCV);&componentRef
-;;QuestionnaireDetailComponent;Questionnaire Detail Component;../questionnaire/questionnaireRecordDetail.jsp;;QuestionnaireDetailComponent
+;;QuestionnaireDetailComponent;Questionnaire Detail Component;../questionnaire/questionnaireDetail.jsp;;QuestionnaireDetailComponent
 ###### Account Questionnaire Deail End ######
 
 ###### Account Questionnaire List Start ######
@@ -50,6 +50,6 @@ INSERT_UPDATE ContentSlot;$contentCV[unique=true];uid[unique=true];name;active;c
 ;;BodyContent-questionnaire-list;Body Content Slot for questionnaire list;true;QuestionnaireListComponent;;;
 
 INSERT_UPDATE JspIncludeComponent;$contentCV[unique=true];uid[unique=true];name;page;actions(uid,$contentCV);&componentRef
-;;QuestionnaireTopContentComponent;Questionnaire List Component;../questionnaire/questionnaireRecordSearch.jsp;;QuestionnaireTopContentComponent
-;;QuestionnaireListComponent;Questionnaire List Component;../questionnaire/questionnaireRecordList.jsp;;QuestionnaireListComponent
+;;QuestionnaireTopContentComponent;Questionnaire List Component;../questionnaire/questionnaireSearch.jsp;;QuestionnaireTopContentComponent
+;;QuestionnaireListComponent;Questionnaire List Component;../questionnaire/questionnaireList.jsp;;QuestionnaireListComponent
 ###### Account Questionnaire List End ######

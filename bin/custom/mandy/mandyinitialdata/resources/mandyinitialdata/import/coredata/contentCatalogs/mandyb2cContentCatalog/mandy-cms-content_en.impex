@@ -6,6 +6,6 @@ $lang=en
 
 # Content Pages
 UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
-;;questionnaireRecord;"Questionnaire Record Form"
+;;questionnaire;"Questionnaire Record Form"
 ;;questionnaireDetail;"Questionnaire Record Detail"
 ;;questionnaireList;"Questionnaire Record List"

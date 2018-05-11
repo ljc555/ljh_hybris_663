@@ -6,6 +6,6 @@ $lang=zh
 
 # Content Pages
 UPDATE ContentPage;$contentCV[unique=true];uid[unique=true];title[lang=$lang]
-;;questionnaireRecord;"问卷调查"
+;;questionnaire;"问卷调查"
 ;;questionnaireDetail;"问卷调查"
 ;;questionnaireList;"问卷调查"

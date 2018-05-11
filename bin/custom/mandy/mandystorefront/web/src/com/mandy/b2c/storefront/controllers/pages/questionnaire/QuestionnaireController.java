@@ -41,12 +41,12 @@ public class QuestionnaireController extends AbstractSearchPageController {
     private static final Logger LOG = LoggerFactory.getLogger(QuestionnaireController.class);
 
 
-    private static final String QUESTIONNAIRE_RECORD_CMS_PAGE = "questionnaireRecord";
+    private static final String QUESTIONNAIRE_RECORD_CMS_PAGE = "questionnaire";
     private static final String QUESTIONNAIRE_DETAIL_CMS_PAGE = "questionnaireDetail";
     private static final String QUESTIONNAIRE_LIST_CMS_PAGE = "questionnaireList";
 
     private static final String BREADCRUMBS_ATTR = "breadcrumbs";
-    private static final String TEXT_DEMAND_PROFILE = "text.account.profile.questionnaireRecordForm";
+    private static final String TEXT_DEMAND_PROFILE = "text.account.profile.questionnaireForm";
     private static final String FORM_GLOBAL_ERROR = "form.global.error";
     private static final String DEFAULT_CURRENT_PAGE = "0";
     private static final String DEFAULT_PAGE_SIZE = "10";
