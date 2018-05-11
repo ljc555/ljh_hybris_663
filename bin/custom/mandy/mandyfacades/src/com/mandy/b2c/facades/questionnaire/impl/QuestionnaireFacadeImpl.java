@@ -72,7 +72,7 @@ public class QuestionnaireFacadeImpl extends DefaultBaseFacade implements Questi
                     .setSource(QuestionnaireSource.valueOf(questionnaireData.getSource()));
             }
 
-            questionnaireModel.setComments(questionnaireData.getComments());
+            questionnaireModel.setRemark(questionnaireData.getRemark());
             questionnaireModel.setOwner(userService.getCurrentUser());
 
             modelService.save(questionnaireModel);
