@@ -44,6 +44,14 @@
                 <description>??</description>
             </value>
         </enumtype>
+        <enumtype code="DeleteFlag" autocreate="true" generate="true" dynamic="true">
+            <value code="Deleted">
+                <description>has deleted</description>
+            </value>
+            <value code="NoDeleted">
+                <description>no delete</description>
+            </value>
+        </enumtype>
     </enumtypes>
 
     <itemtypes>
@@ -162,6 +170,17 @@
                         <modifiers />
                         <persistence type="property" />
                         <defaultvalue>false</defaultvalue>
+                    </attribute>
+                    <attribute qualifier="remark" type="java.lang.String">
+                        <description>remark</description>
+                        <modifiers />
+                        <persistence type="property" />
+                    </attribute>
+                    <attribute qualifier="deleted" type="DeleteFlag">
+                        <description>delete</description>
+                        <modifiers />
+                        <persistence type="property" />
+                        <defaultvalue>em().getEnumerationValue("DeleteFlag","NoDeleted")</defaultvalue>
                     </attribute>
                 </attributes>
             </itemtype>

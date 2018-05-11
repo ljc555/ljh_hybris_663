@@ -193,4 +193,15 @@
 
 	<bean id="questionnaireFacade" class="com.mandy.b2c.facades.questionnaire.impl.QuestionnaireFacadeImpl"/>
 
+	<bean id="questionnairePopulator" class="com.mandy.b2c.facades.populators.questionnaire.QuestionnairePopulator">
+	</bean>
+	<bean id="questionnaireConverter" parent="abstractPopulatingConverter">
+		<property name="targetClass" value="com.mandy.platform.data.QuestionnaireData" />
+		<property name="populators">
+			<list>
+				<ref bean="questionnairePopulator" />
+			</list>
+		</property>
+	</bean>
+
 </beans>

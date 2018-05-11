@@ -23,6 +23,8 @@ public class QuestionnaireForm {
     private String source;
     /** 是否购买 **/
     private Boolean ifBuy;
+    /** 备注 **/
+    private String remark;
 
     public String getCode() {
         return code;
@@ -78,5 +80,13 @@ public class QuestionnaireForm {
 
     public void setIfBuy(Boolean ifBuy) {
         this.ifBuy = ifBuy;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 }

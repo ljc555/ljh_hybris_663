@@ -27,6 +27,7 @@
 		<property name="price" type="java.lang.Double"/>
 		<property name="manufactor" type="java.lang.String"/>
 		<property name="source" type="java.lang.String"/>
+		<property name="remark" type="java.lang.String"/>
 		<property name="ifBuy" type="java.lang.Boolean"/>
 		<property name="createDate" type="java.util.Date"/>
 		<property name="user" type="de.hybris.platform.commercefacades.user.data.CustomerData"/>
